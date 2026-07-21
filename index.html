@@ -123,7 +123,7 @@
       .logo {
         font-family: 'Playfair Display', serif;
         font-weight: 700;
-        font-size: 24px;
+        font-size: 28px;
         color: var(--maroon);
       }
       .nav-links {
@@ -133,8 +133,9 @@
         align-items: center;
       }
       .nav-links a {
+        font-family: "Segoe UI", sans-serif;
         font-weight: 500;
-        font-size: 15px;
+        font-size: 19  px;
         color: var(--ink);
         position: relative;
         padding: 4px 0;
@@ -149,25 +150,20 @@
         background: var(--maroon);
         transition: width 0.25s ease;
       }
-      .nav-links a:hover::after {
-        width: 100%;
-      }
+      .nav-links a:hover {
+    color: var(--gold);
+}
       .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 13px 26px;
-        border-radius: 999px;
-        font-weight: 600;
-        font-size: 14.5px;
-        border: none;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        white-space: nowrap;
+    width: 240px;
+    height: 45px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
       }
       .btn-primary {
         background: var(--maroon);
-        color: #fff;
+          color: #ffffff;
       }
       .btn-primary:hover {
         background: var(--maroon-dark);
@@ -184,12 +180,12 @@
         color: #fff;
       }
       .btn-ghost-light {
-        background: rgba(255, 255, 255, 0.12);
-        color: #fff;
+        background: rgba(244, 242, 242, 0.12);
+        color: #f0e7e7;
         border: 1.5px solid rgba(255, 255, 255, 0.55);
       }
       .btn-ghost-light:hover {
-        background: #fff;
+        background: #e8eeec;
         color: var(--maroon);
       }
       .menu-toggle {
@@ -461,6 +457,13 @@
       .amenity-card:hover {
         transform: translateY(-4px);
       }
+        .amenity-card:hover h4{
+        color: #D4AF37;   /* Luxury Gold */
+      }
+
+        .amenity-card:hover .amenity-detail{
+          color: #b76771;   /* Luxury Maroon */
+      }
       .amenity-icon {
         font-size: 32px;
         margin-bottom: 14px;
@@ -472,9 +475,20 @@
       .amenity-detail {
         font-size: 13.5px;
         color: var(--ink-soft);
+        
       }
+      .amenity-card{
+          position: relative;
+          border: 2px solid #e78d90;
+          border-radius: 14px;
+          background: #fff;
+          transition: 0.3s;
+        }
 
-      /* ---------- gallery ---------- */
+      .amenity-card::before {
+          animation: rotateBorder 3s linear infinite;
+
+        }
       .gallery-head {
         text-align: center;
         margin-bottom: 48px;
@@ -856,7 +870,7 @@
       }
       .footer-grid {
         max-width: 1200px;
-        margin: 0 auto;
+        margin: 5 auto;
         padding: 0 32px 48px;
         display: grid;
         grid-template-columns: 2fr 1fr 1.5fr 1fr;
@@ -931,7 +945,7 @@
       @media (max-width: 768px) {
         .footer-grid {
           grid-template-columns: 1fr;
-          gap: 32px;
+          gap: 42px;
         }
       }
 
@@ -1048,7 +1062,7 @@
           <div class="room-card reveal" data-type="standard">
             <div class="room-img">
               <img
-                src="images/unnamed(10).jpg"
+                src="images/oacnryjwguxs.jpg"
                 alt="SR Residency Standard Room"
               />
               <span class="room-tag">220 sq ft</span>
@@ -1069,7 +1083,7 @@
 
           <div class="room-card reveal" data-type="deluxe">
             <div class="room-img">
-              <img src="images/unnamed(4).jpg" alt="SR Residency Deluxe Room" />
+              <img src="images/images (2).jpg" alt="SR Residency Deluxe Room" />
               <span class="room-tag">280 sq ft</span>
             </div>
             <div class="room-body">
@@ -1090,7 +1104,7 @@
           <div class="room-card reveal" data-type="family">
             <div class="room-img">
               <img
-                src="images/unnamed(5).jpg"
+                src="images/images (4).jpg"
                 alt="SR Residency Twin/Family Room"
               />
               <span class="room-tag">380 sq ft</span>
@@ -1164,6 +1178,20 @@
               Convenient parking space right in front of the premises
             </div>
           </div>
+          <div class="amenity-card reveal">
+          <div class="amenity-icon">🧹</div>
+            <h4>Housekeeping Service</h4>
+            <div class="amenity-detail">
+              Daily housekeeping with fresh linens and spotless rooms for a comfortable stay.
+            </div>
+          </div>
+          <div class="amenity-card reveal">
+          <div class="amenity-icon">🔒</div>
+            <h4>24/7 CCTV Security</h4>
+             <div class="amenity-detail">
+              Round-the-clock CCTV surveillance and secure premises for your safety and peace of mind.
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1188,21 +1216,74 @@
             />
           </div>
           <div class="gallery-item reveal">
-            <img src="images/unnamed(4).jpg" alt="Deluxe Room Setup" />
+            <img src="images/residency_img_1.jpg" alt="Deluxe Room Setup" />
           </div>
           <div class="gallery-item reveal">
             <img
-              src="images/unnamed(3).jpg"
+              src="images/1fb95fa2.jpg"
               alt="SR Residency Wall Art & Hallway"
             />
           </div>
           <div class="gallery-item reveal">
             <img
-              src="images/unnamed(8).jpg"
+              src="images/unnamed(10).jpg"
+              alt="Deluxe Room  at SR Residency"
+            />
+          </div>
+          <div class="gallery-item reveal">
+            <img
+              src="images/images (1).jpg"
+              alt="Deluxe Room at SR Residency"
+            />
+          </div>
+          <div class="gallery-item reveal">
+            <img
+              src="images/394040665.jpg"
+              alt="Deluxe Room  at SR Residency"
+            />
+          </div>
+          <div class="gallery-item reveal">
+            <img
+              src="images/images (3).jpg"
+              alt="Deluxe Room  at SR Residency"
+            />
+          </div>
+          <div class="gallery-item reveal">
+            <img
+              src="images/unnamed(5).jpg"
+              alt="Deluxe Room  at SR Residency"
+            />
+          </div>
+          <div class="gallery-item reveal">
+            <img
+              src="images/731788032.jpg"
+              alt="Deluxe Room  at SR Residency"
+            />
+          </div>
+          <div class="gallery-item reveal">
+            <img
+              src="images/10.jpg"
+              alt="Deluxe Room  at SR Residency"
+            />
+          </div>
+         <div class="gallery-item reveal">
+            <img
+              src="images/residency_img_2.jpg"
               alt="Delicious Food Served at SR Residency"
             />
           </div>
-        </div>
+           <div class="gallery-item reveal">
+            <img
+              src="images/images.jpg"
+              alt="Delicious Food Served at SR Residency"
+            />
+          </div>
+           <div class="gallery-item reveal">
+            <img
+              src="images/residency_img_3.jpg"
+              alt="Delicious Food Served at SR Residency"
+            />
+          </div>
       </div>
     </section>
 
@@ -1719,9 +1800,9 @@
                 >📞</span
               >
               <a
-                href="tel:+919876543210"
+                href="tel:+919884180530"
                 style="color: var(--maroon); font-weight: 600"
-                >+91 98765 43210</a
+                >+91 9884180530</a
               >
             </div>
             <div
@@ -1785,7 +1866,7 @@
                 >💬</span
               >
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919884180530"
                 target="_blank"
                 style="color: var(--maroon); font-weight: 600"
                 >WhatsApp us</a
@@ -1884,8 +1965,8 @@
       </p>
       <div class="ctas">
         <a href="#booking" class="btn btn-primary">📅 Book Your Room</a>
-        <a href="tel:+919876543210" class="btn btn-ghost-light"
-          >📞 Call Us: +91 98765 43210</a
+        <a href="tel:+919884180530" class="btn btn-ghost-light"
+          >📞Call Us: +91 9884180530   </a
         >
       </div>
     </section>
@@ -1910,9 +1991,9 @@
         </div>
         <div>
           <h5>Contact</h5>
-          <div class="contact-item">📞 +91 98765 43210</div>
+          <div class="contact-item">📞 +91 9884180530</div>
           <div class="contact-item">✉️ stay@srresidency.com</div>
-          <div class="contact-item">📍 Chennai, Tamil Nadu, India</div>
+          <div class="contact-item">📍 39, 15, Raja Muthiah Rd, Periamet, Park Town, Chennai, Greater Chennai, Tamil Nadu 600003</div>
         </div>
         <div>
           <h5>Follow Us</h5>
