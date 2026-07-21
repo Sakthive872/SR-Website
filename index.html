@@ -1,0 +1,2122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SR Residency | Comfort for Family. Convenience for Business.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --maroon: #7c2a34;
+        --maroon-dark: #5c1e26;
+        --cream: #faf6f0;
+        --beige: #f1e9dc;
+        --ink: #2b2a28;
+        --ink-soft: #6b6660;
+        --gold: #d9a441;
+        --green: #2e9e5b;
+        --navy: #1c2431;
+        --radius: 14px;
+        --shadow: 0 10px 30px rgba(44, 30, 20, 0.08);
+        --shadow-lg: 0 20px 50px rgba(44, 30, 20, 0.14);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        color: var(--ink);
+        background: var(--cream);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1,
+      h2,
+      h3,
+      .serif {
+        font-family: 'Playfair Display', serif;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+        object-fit: cover;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      .eyebrow {
+        font-size: 13px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--maroon);
+        font-weight: 700;
+        margin-bottom: 12px;
+        display: block;
+      }
+      section {
+        padding: 100px 0;
+      }
+      @media (max-width: 768px) {
+        section {
+          padding: 64px 0;
+        }
+        .container {
+          padding: 0 20px;
+        }
+      }
+
+      /* ---------- reveal on scroll ---------- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+      /* ---------- nav ---------- */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(250, 246, 240, 0.92);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .logo {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 24px;
+        color: var(--maroon);
+      }
+      .nav-links {
+        display: flex;
+        gap: 34px;
+        list-style: none;
+        align-items: center;
+      }
+      .nav-links a {
+        font-weight: 500;
+        font-size: 15px;
+        color: var(--ink);
+        position: relative;
+        padding: 4px 0;
+      }
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: var(--maroon);
+        transition: width 0.25s ease;
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 26px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 14.5px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+      }
+      .btn-primary {
+        background: var(--maroon);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background: var(--maroon-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--maroon);
+        border: 1.5px solid var(--maroon);
+      }
+      .btn-outline:hover {
+        background: var(--maroon);
+        color: #fff;
+      }
+      .btn-ghost-light {
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        border: 1.5px solid rgba(255, 255, 255, 0.55);
+      }
+      .btn-ghost-light:hover {
+        background: #fff;
+        color: var(--maroon);
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 26px;
+        color: var(--maroon);
+        cursor: pointer;
+      }
+      nav .btn-primary {
+        background: #b85c68;
+      }
+      nav .btn-primary:hover {
+        background: #a34e5a;
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        position: relative;
+        min-height: 92vh;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(28, 20, 18, 0.65),
+            rgba(28, 20, 18, 0.8)
+          ),
+          url('unnamed(9).jpg') center/cover no-repeat;
+      }
+      .hero-content {
+        max-width: 680px;
+      }
+      .hero h1 {
+        font-size: 52px;
+        line-height: 1.15;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+      .hero p {
+        font-size: 18px;
+        line-height: 1.6;
+        opacity: 0.9;
+        margin-bottom: 36px;
+      }
+      .hero-ctas {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 36px;
+        }
+        .hero p {
+          font-size: 16px;
+        }
+      }
+
+      /* ---------- sticky booking bar ---------- */
+      .booking-bar {
+        position: sticky;
+        top: 73px;
+        z-index: 90;
+        background: var(--navy);
+        color: #fff;
+        transform: translateY(-140%);
+        transition: transform 0.35s ease;
+      }
+      .booking-bar.show {
+        transform: translateY(0);
+      }
+      .booking-bar-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 12px 32px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+      .bb-field {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .bb-field label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0.65;
+      }
+      .bb-field input {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        padding: 7px 10px;
+        border-radius: 8px;
+        font-family: 'Inter';
+        font-size: 14px;
+      }
+      .bb-field input::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+      }
+      .booking-bar .btn-primary {
+        margin-left: auto;
+        background: var(--gold);
+        color: var(--navy);
+      }
+      .booking-bar .btn-primary:hover {
+        background: #c8922f;
+      }
+
+      /* ---------- rooms ---------- */
+      .rooms-head {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 48px;
+      }
+      .rooms-head h2 {
+        font-size: 38px;
+        margin-bottom: 12px;
+      }
+      .room-filters {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+      .filter-tab {
+        padding: 8px 20px;
+        border-radius: 99px;
+        background: #fff;
+        border: 1px solid #e4dccd;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .filter-tab.active,
+      .filter-tab:hover {
+        background: var(--maroon);
+        color: #fff;
+        border-color: var(--maroon);
+      }
+      .room-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 32px;
+      }
+      .room-card {
+        background: #fff;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+      .room-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+      }
+      .room-img {
+        position: relative;
+        height: 240px;
+        overflow: hidden;
+      }
+      .room-img img {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s ease;
+      }
+      .room-card:hover .room-img img {
+        transform: scale(1.05);
+      }
+      .room-tag {
+        position: absolute;
+        bottom: 14px;
+        left: 14px;
+        background: rgba(0, 0, 0, 0.65);
+        color: #fff;
+        font-size: 12px;
+        padding: 4px 10px;
+        border-radius: 6px;
+        backdrop-filter: blur(4px);
+      }
+      .room-body {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+      .room-rating {
+        font-size: 13px;
+        color: var(--gold);
+        margin-bottom: 6px;
+        font-weight: 600;
+      }
+      .room-rating span {
+        color: var(--ink-soft);
+        font-weight: 400;
+      }
+      .room-body h3 {
+        font-size: 22px;
+        margin-bottom: 8px;
+      }
+      .room-body p {
+        font-size: 14px;
+        color: var(--ink-soft);
+        margin-bottom: 16px;
+      }
+      .room-feat {
+        font-size: 13px;
+        color: var(--green);
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .room-foot {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 16px;
+        border-top: 1px solid #f2ede4;
+      }
+      .room-price b {
+        font-size: 22px;
+        color: var(--maroon);
+      }
+      .room-price span {
+        font-size: 13px;
+        color: var(--ink-soft);
+      }
+      .btn-sm {
+        padding: 8px 18px;
+        font-size: 13.5px;
+      }
+
+      /* ---------- amenities ---------- */
+      .amenities {
+        background: var(--beige);
+      }
+      .amenities-head {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 56px;
+      }
+      .amenities-head h2 {
+        font-size: 38px;
+      }
+      .amenity-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+      }
+      .amenity-card {
+        background: #fff;
+        padding: 28px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        transition: transform 0.2s ease;
+      }
+      .amenity-card:hover {
+        transform: translateY(-4px);
+      }
+      .amenity-icon {
+        font-size: 32px;
+        margin-bottom: 14px;
+      }
+      .amenity-card h4 {
+        font-size: 18px;
+        margin-bottom: 6px;
+      }
+      .amenity-detail {
+        font-size: 13.5px;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- gallery ---------- */
+      .gallery-head {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .gallery-head h2 {
+        font-size: 38px;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .gallery-item {
+        position: relative;
+        height: 220px;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .gallery-item.tall {
+        grid-row: span 2;
+        height: 100%;
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.4s ease;
+      }
+      .gallery-item:hover img {
+        transform: scale(1.06);
+      }
+      @media (max-width: 768px) {
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .gallery-item.tall {
+          grid-row: span 1;
+          height: 200px;
+        }
+      }
+
+      /* ---------- lightbox ---------- */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.92);
+        z-index: 999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .lightbox.open {
+        display: flex;
+      }
+      .lightbox img {
+        max-width: 90vw;
+        max-height: 85vh;
+        border-radius: 8px;
+      }
+      .lightbox-close,
+      .lightbox-nav {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        border: none;
+        font-size: 28px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s ease;
+      }
+      .lightbox-close:hover,
+      .lightbox-nav:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      .lightbox-close {
+        top: 20px;
+        right: 20px;
+      }
+      .lightbox-prev {
+        left: 20px;
+      }
+      .lightbox-next {
+        right: 20px;
+      }
+      .lightbox-counter {
+        position: absolute;
+        bottom: 20px;
+        color: #fff;
+        font-size: 14px;
+        opacity: 0.7;
+      }
+
+      /* ---------- nearby ---------- */
+      .nearby {
+        background: #fff;
+      }
+      .nearby-head {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .nearby-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+      .nearby-card {
+        padding: 28px;
+        border-radius: var(--radius);
+        background: var(--cream);
+        border: 1px solid #eae2d5;
+      }
+      .nearby-icon {
+        font-size: 30px;
+        margin-bottom: 12px;
+      }
+      .nearby-card h4 {
+        font-size: 19px;
+        margin-bottom: 4px;
+      }
+      .nearby-dist {
+        font-size: 12.5px;
+        color: var(--maroon);
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .nearby-card p {
+        font-size: 14px;
+        color: var(--ink-soft);
+        margin-bottom: 14px;
+      }
+      .nearby-card a {
+        font-size: 13.5px;
+        color: var(--maroon);
+        font-weight: 600;
+      }
+
+      /* ---------- reviews ---------- */
+      .reviews-head {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .rating-badge {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--navy);
+        font-weight: 700;
+        font-size: 13px;
+        padding: 6px 16px;
+        border-radius: 99px;
+        margin-top: 12px;
+      }
+      .review-carousel {
+        max-width: 760px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .review-track {
+        overflow: hidden;
+      }
+      .review-slides {
+        display: flex;
+        transition: transform 0.4s ease;
+      }
+      .review-slide {
+        min-width: 100%;
+        padding: 0 12px;
+      }
+      .review-card {
+        background: #fff;
+        padding: 36px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+      .stars {
+        color: var(--gold);
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+      .review-card p {
+        font-size: 16.5px;
+        font-style: italic;
+        margin-bottom: 20px;
+        color: var(--ink);
+      }
+      .reviewer {
+        font-weight: 700;
+        font-size: 15px;
+        color: var(--maroon);
+      }
+      .verified {
+        font-size: 12px;
+        color: var(--green);
+        margin-top: 2px;
+      }
+      .carousel-arrows {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 24px;
+      }
+      .carousel-arrow {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1px solid #e4dccd;
+        cursor: pointer;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+      }
+      .carousel-arrow:hover {
+        background: var(--maroon);
+        color: #fff;
+        border-color: var(--maroon);
+      }
+      .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #dcd4c5;
+        border: none;
+        cursor: pointer;
+      }
+      .carousel-dot.active {
+        background: var(--maroon);
+        width: 24px;
+        border-radius: 99px;
+      }
+
+      /* ---------- faq ---------- */
+      .faq {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .faq-head {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .faq-item {
+        border-bottom: 1px solid #e4dccd;
+        padding: 20px 0;
+      }
+      .faq-q {
+        font-size: 17px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        border: none;
+        width: 100%;
+        text-align: left;
+        color: var(--ink);
+      }
+      .faq-q .plus {
+        font-size: 22px;
+        color: var(--maroon);
+        transition: transform 0.3s ease;
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.35s ease,
+          padding 0.35s ease;
+      }
+      .faq-a p {
+        font-size: 14.5px;
+        color: var(--ink-soft);
+        padding-top: 12px;
+        line-height: 1.6;
+      }
+      .faq-item.open .faq-a {
+        max-height: 200px;
+      }
+      .faq-item.open .plus {
+        transform: rotate(45deg);
+      }
+
+      /* ---------- blog ---------- */
+      .blog {
+        background: #fff;
+      }
+      .blog-head {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 32px;
+      }
+      .blog-card {
+        background: var(--cream);
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid #eae2d5;
+      }
+      .blog-img {
+        height: 180px;
+        overflow: hidden;
+      }
+      .blog-img img {
+        width: 100%;
+        height: 100%;
+      }
+      .blog-body {
+        padding: 24px;
+      }
+      .blog-date {
+        font-size: 12px;
+        color: var(--maroon);
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .blog-body h4 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+      .blog-body p {
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        margin-bottom: 14px;
+      }
+      .blog-body a {
+        font-size: 13.5px;
+        color: var(--maroon);
+        font-weight: 600;
+      }
+
+      /* ---------- final cta ---------- */
+      .final-cta {
+        background: linear-gradient(135deg, var(--maroon), var(--maroon-dark));
+        color: #fff;
+        text-align: center;
+        padding: 80px 32px;
+      }
+      .final-cta h2 {
+        font-size: 42px;
+        margin-bottom: 16px;
+      }
+      .final-cta p {
+        font-size: 18px;
+        opacity: 0.9;
+        max-width: 580px;
+        margin: 0 auto 36px;
+      }
+      .final-cta .ctas {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      /* ---------- footer ---------- */
+      footer {
+        background: var(--navy);
+        color: #fff;
+        padding: 64px 0 32px;
+        font-size: 14px;
+      }
+      .footer-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 32px 48px;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1.5fr 1fr;
+        gap: 40px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      footer h5 {
+        font-size: 16px;
+        margin-bottom: 18px;
+        color: var(--gold);
+      }
+      footer p {
+        opacity: 0.75;
+        line-height: 1.6;
+      }
+      .footer-links {
+        list-style: none;
+      }
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+      .footer-links a {
+        opacity: 0.75;
+        transition: opacity 0.2s ease;
+      }
+      .footer-links a:hover {
+        opacity: 1;
+        color: var(--gold);
+      }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        opacity: 0.85;
+      }
+      .social-row {
+        display: flex;
+        gap: 12px;
+      }
+      .social-row a {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        transition: background 0.2s ease;
+      }
+      .social-row a:hover {
+        background: var(--gold);
+        color: var(--navy);
+      }
+      .footer-bottom {
+        max-width: 1200px;
+        margin: 24px auto 0;
+        padding: 0 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        opacity: 0.6;
+        font-size: 13px;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .footer-bottom a {
+        color: #fff;
+        margin-left: 16px;
+      }
+      @media (max-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+
+      /* ---------- float whatsapp ---------- */
+      .float-whatsapp {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 95;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: #25d366;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        transition: transform 0.2s ease;
+      }
+      .float-whatsapp:hover {
+        transform: scale(1.1);
+      }
+
+      .hide {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#" class="logo">SR Residency</a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#rooms">Rooms</a></li>
+          <li><a href="#amenities">Amenities</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li>
+            <a href="#booking" class="btn btn-primary" style="color: #fff"
+              >Book Now</a
+            >
+          </li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+          ☰
+        </button>
+      </nav>
+    </header>
+
+    <div class="booking-bar" id="bookingBar">
+      <div class="booking-bar-inner">
+        <div class="bb-field">
+          <label for="checkin">Check-in</label>
+          <input type="date" id="checkin" />
+        </div>
+        <div class="bb-field">
+          <label for="checkout">Check-out</label>
+          <input type="date" id="checkout" />
+        </div>
+        <div
+          id="bbTotal"
+          style="
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gold);
+            margin-left: 10px;
+          "
+        ></div>
+        <button class="btn btn-primary" id="checkAvail">Reserve Room</button>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content reveal">
+          <span class="eyebrow" style="color: var(--gold)"
+            >Welcome to SR Residency</span
+          >
+          <h1>Comfort for Family.<br />Convenience for Business.</h1>
+          <p>
+            Experience warm South Indian hospitality in Chennai. Modern
+            amenities, comfortable rooms, and a central location for stress-free
+            travel.
+          </p>
+          <div class="hero-ctas">
+            <a href="#booking" class="btn btn-primary">Book Your Stay</a>
+            <a href="#rooms" class="btn btn-ghost-light">View Rooms</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rooms" id="rooms">
+      <div class="container">
+        <div class="rooms-head reveal">
+          <span class="eyebrow">Accommodations</span>
+          <h2>Designed for Your Comfort</h2>
+          <p>
+            Choose from our carefully furnished rooms, catered to family trips
+            and executive visits alike.
+          </p>
+        </div>
+
+        <div class="room-filters reveal">
+          <button class="filter-tab active" data-filter="all">All Rooms</button>
+          <button class="filter-tab" data-filter="standard">Standard</button>
+          <button class="filter-tab" data-filter="deluxe">Deluxe</button>
+          <button class="filter-tab" data-filter="family">Family</button>
+        </div>
+
+        <div class="room-grid">
+          <div class="room-card reveal" data-type="standard">
+            <div class="room-img">
+              <img src="unnamed(10).jpg" alt="SR Residency Standard Room" />
+              <span class="room-tag">220 sq ft</span>
+            </div>
+            <div class="room-body">
+              <div class="room-rating">★ 4.7 <span>(142 reviews)</span></div>
+              <h3>Standard Room</h3>
+              <p>
+                Cozy & efficient stay equipped with essential modern comforts.
+              </p>
+              <div class="room-feat">✓ Queen bed + Free WiFi</div>
+              <div class="room-foot">
+                <div class="room-price"><b>₹2,200</b><span> /night</span></div>
+                <a href="#booking" class="btn btn-primary btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="room-card reveal" data-type="deluxe">
+            <div class="room-img">
+              <img src="unnamed(4).jpg" alt="SR Residency Deluxe Room" />
+              <span class="room-tag">280 sq ft</span>
+            </div>
+            <div class="room-body">
+              <div class="room-rating">★ 4.9 <span>(310 reviews)</span></div>
+              <h3>Deluxe Room</h3>
+              <p>
+                Premium setup featuring romantic décor, false ceiling lighting &
+                cozy atmosphere.
+              </p>
+              <div class="room-feat">✓ King bed + AC + Breakfast</div>
+              <div class="room-foot">
+                <div class="room-price"><b>₹3,000</b><span> /night</span></div>
+                <a href="#booking" class="btn btn-primary btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="room-card reveal" data-type="family">
+            <div class="room-img">
+              <img src="unnamed(5).jpg" alt="SR Residency Twin/Family Room" />
+              <span class="room-tag">380 sq ft</span>
+            </div>
+            <div class="room-body">
+              <div class="room-rating">★ 4.8 <span>(215 reviews)</span></div>
+              <h3>Family Suite</h3>
+              <p>
+                Generous layout featuring twin double beds, perfect for families
+                or groups.
+              </p>
+              <div class="room-feat">✓ 2 Double Beds + Flat Screen TV</div>
+              <div class="room-foot">
+                <div class="room-price"><b>₹4,200</b><span> /night</span></div>
+                <a href="#booking" class="btn btn-primary btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="amenities" id="amenities">
+      <div class="container">
+        <div class="amenities-head reveal">
+          <span class="eyebrow">What's Included</span>
+          <h2>Everything you need, taken care of</h2>
+          <p>Hover a card for details</p>
+        </div>
+        <div class="amenity-grid">
+          <div class="amenity-card reveal">
+            <div class="amenity-icon">📶</div>
+            <h4>Free High-Speed WiFi</h4>
+            <div class="amenity-detail">
+              Fast fiber connection across all rooms & reception area
+            </div>
+          </div>
+          <div class="amenity-card reveal">
+            <div class="amenity-icon">🍲</div>
+            <h4>On-site Dining & Room Service</h4>
+            <div class="amenity-detail">
+              Freshly prepared South Indian meals delivered straight to your
+              room
+            </div>
+          </div>
+          <div class="amenity-card reveal">
+            <div class="amenity-icon">🛎️</div>
+            <h4>24/7 Front Desk Support</h4>
+            <div class="amenity-detail">
+              Round-the-clock check-in and friendly staff assistance
+            </div>
+          </div>
+          <div class="amenity-card reveal">
+            <div class="amenity-icon">❄️</div>
+            <h4>Air Conditioning</h4>
+            <div class="amenity-detail">
+              Climate-controlled rooms for ultimate comfort in Chennai weather
+            </div>
+          </div>
+          <div class="amenity-card reveal">
+            <div class="amenity-icon">📰</div>
+            <h4>Daily Newspaper & Magazines</h4>
+            <div class="amenity-detail">
+              Complimentary reading material available in our lobby lounge
+            </div>
+          </div>
+          <div class="amenity-card reveal">
+            <div class="amenity-icon">🚗</div>
+            <h4>Parking Facilities</h4>
+            <div class="amenity-detail">
+              Convenient parking space right in front of the premises
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <div class="gallery-head reveal">
+          <span class="eyebrow">Gallery</span>
+          <h2>A glimpse inside SR Residency</h2>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item tall reveal">
+            <img src="unnamed(9).jpg" alt="SR Residency Exterior View" />
+          </div>
+          <div class="gallery-item reveal">
+            <img src="041d28d8_z.jpg" alt="SR Residency Reception Desk" />
+          </div>
+          <div class="gallery-item reveal">
+            <img src="unnamed(4).jpg" alt="Deluxe Room Setup" />
+          </div>
+          <div class="gallery-item reveal">
+            <img src="unnamed(3).jpg" alt="SR Residency Wall Art & Hallway" />
+          </div>
+          <div class="gallery-item reveal">
+            <img
+              src="unnamed(8).jpg"
+              alt="Delicious Food Served at SR Residency"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightboxClose">×</button>
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
+      <img src="" id="lightboxImg" alt="Enlarged view" />
+      <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
+      <div class="lightbox-counter" id="lightboxCounter">1 / 5</div>
+    </div>
+
+    <section class="nearby" id="nearby">
+      <div class="container">
+        <div class="nearby-head reveal">
+          <span class="eyebrow">Explore Chennai</span>
+          <h2>Nearby Attractions & Landmarks</h2>
+        </div>
+        <div class="nearby-grid">
+          <div class="nearby-card reveal">
+            <div class="nearby-icon">🏖️</div>
+            <h4>Marina Beach</h4>
+            <div class="nearby-dist">3.5 km away • 12 min drive</div>
+            <p>
+              The world's second-longest urban beach. Perfect for evening
+              strolls and local snacks.
+            </p>
+            <a
+              href="https://maps.google.com/?q=Marina+Beach+Chennai"
+              target="_blank"
+              >View on Map →</a
+            >
+          </div>
+          <div class="nearby-card reveal">
+            <div class="nearby-icon">🛕</div>
+            <h4>Kapaleeshwarar Temple</h4>
+            <div class="nearby-dist">2.1 km away • 8 min drive</div>
+            <p>
+              Historic 7th-century Dravidian temple dedicated to Lord Shiva in
+              Mylapore.
+            </p>
+            <a
+              href="https://maps.google.com/?q=Kapaleeshwarar+Temple+Chennai"
+              target="_blank"
+              >View on Map →</a
+            >
+          </div>
+          <div class="nearby-card reveal">
+            <div class="nearby-icon">✈️</div>
+            <h4>Chennai Intl Airport</h4>
+            <div class="nearby-dist">14 km away • 35 min drive</div>
+            <p>
+              Easily accessible via major arterial roads or Metro connectivity.
+            </p>
+            <a
+              href="https://maps.google.com/?q=Chennai+International+Airport"
+              target="_blank"
+              >View on Map →</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="reviews-head reveal">
+          <span class="eyebrow">Guest Experiences</span>
+          <h2>What people say about SR Residency</h2>
+          <div class="rating-badge">★ 4.8 out of 5 based on 1,200+ reviews</div>
+        </div>
+
+        <div class="review-carousel reveal">
+          <div class="review-track">
+            <div class="review-slides" id="reviewSlides">
+              <div class="review-slide">
+                <div class="review-card">
+                  <div class="stars">★★★★★</div>
+                  <p>
+                    "Clean rooms, polite staff, and an unbeatable location in
+                    Chennai. The front desk helped us book taxi service
+                    seamlessly."
+                  </p>
+                  <div class="reviewer">Ramesh Kumar</div>
+                  <div class="verified">✓ Verified Stay • Family Trip</div>
+                </div>
+              </div>
+              <div class="review-slide">
+                <div class="review-card">
+                  <div class="stars">★★★★★</div>
+                  <p>
+                    "Great value for business travel. Fast WiFi, quiet
+                    environment, and prompt room service. Highly recommended."
+                  </p>
+                  <div class="reviewer">Priya Sundaram</div>
+                  <div class="verified">✓ Verified Stay • Business Travel</div>
+                </div>
+              </div>
+              <div class="review-slide">
+                <div class="review-card">
+                  <div class="stars">★★★★★</div>
+                  <p>
+                    "Stayed for 3 nights with family. Rooms were spacious, AC
+                    worked great, and food was delicious every time."
+                  </p>
+                  <div class="reviewer">Anand Verma</div>
+                  <div class="verified">✓ Verified Stay • 3-Night Stay</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-arrows">
+            <button class="carousel-arrow" id="slidePrev">‹</button>
+            <button class="carousel-arrow" id="slideNext">›</button>
+          </div>
+          <div class="carousel-dots" id="carouselDots">
+            <button class="carousel-dot active" data-idx="0"></button>
+            <button class="carousel-dot" data-idx="1"></button>
+            <button class="carousel-dot" data-idx="2"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: var(--cream)" id="faq">
+      <div class="container">
+        <div class="faq reveal">
+          <div class="faq-head">
+            <span class="eyebrow">Got Questions?</span>
+            <h2>Frequently Asked Questions</h2>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              What are the check-in and check-out times?
+              <span class="plus">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Check-in is from 12:00 PM and check-out is until 11:00 AM. Early
+                check-in or late check-out is subject to availability and can be
+                requested at front desk.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              Is parking available on site? <span class="plus">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Yes, we offer secure parking space for all registered guests,
+                including cars and two-wheelers.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              Do you offer food service? <span class="plus">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Yes! Delicious local dishes and biryani meals can be ordered via
+                our prompt room service.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="book-hero"
+      id="booking"
+      style="
+        background: linear-gradient(180deg, var(--beige), var(--cream));
+        padding: 80px 0 56px;
+      "
+    >
+      <div class="container">
+        <span class="eyebrow">Contact & Booking</span>
+        <h1>Reserve your stay with confidence</h1>
+        <p>Share your preference and our team will get back to you shortly.</p>
+      </div>
+    </section>
+
+    <section class="book-main" style="padding: 64px 0 100px">
+      <div
+        class="container book-grid"
+        style="
+          display: grid;
+          grid-template-columns: 1.3fr 1fr;
+          gap: 48px;
+          align-items: start;
+        "
+      >
+        <form id="bookingForm" novalidate>
+          <div
+            class="form-row"
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 20px;
+              margin-bottom: 22px;
+            "
+          >
+            <div>
+              <label
+                for="name"
+                style="
+                  display: block;
+                  font-weight: 600;
+                  font-size: 14.5px;
+                  margin-bottom: 8px;
+                  color: var(--ink);
+                "
+                >Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                required
+                style="
+                  width: 100%;
+                  padding: 13px 16px;
+                  border: 1.5px solid #e4dccd;
+                  border-radius: 10px;
+                  font-family: 'Inter';
+                  font-size: 14.5px;
+                  color: var(--ink);
+                  background: #fff;
+                "
+              />
+              <div
+                class="error-msg"
+                id="nameError"
+                style="
+                  color: #c14848;
+                  font-size: 12.5px;
+                  margin-top: 6px;
+                  display: none;
+                "
+              >
+                Please enter your name.
+              </div>
+            </div>
+            <div>
+              <label
+                for="email"
+                style="
+                  display: block;
+                  font-weight: 600;
+                  font-size: 14.5px;
+                  margin-bottom: 8px;
+                  color: var(--ink);
+                "
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                required
+                style="
+                  width: 100%;
+                  padding: 13px 16px;
+                  border: 1.5px solid #e4dccd;
+                  border-radius: 10px;
+                  font-family: 'Inter';
+                  font-size: 14.5px;
+                  color: var(--ink);
+                  background: #fff;
+                "
+              />
+              <div
+                class="error-msg"
+                id="emailError"
+                style="
+                  color: #c14848;
+                  font-size: 12.5px;
+                  margin-top: 6px;
+                  display: none;
+                "
+              >
+                Please enter a valid email.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="form-row"
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 20px;
+              margin-bottom: 22px;
+            "
+          >
+            <div>
+              <label
+                for="phone"
+                style="
+                  display: block;
+                  font-weight: 600;
+                  font-size: 14.5px;
+                  margin-bottom: 8px;
+                  color: var(--ink);
+                "
+                >Phone</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                required
+                style="
+                  width: 100%;
+                  padding: 13px 16px;
+                  border: 1.5px solid #e4dccd;
+                  border-radius: 10px;
+                  font-family: 'Inter';
+                  font-size: 14.5px;
+                  color: var(--ink);
+                  background: #fff;
+                "
+              />
+              <div
+                class="error-msg"
+                id="phoneError"
+                style="
+                  color: #c14848;
+                  font-size: 12.5px;
+                  margin-top: 6px;
+                  display: none;
+                "
+              >
+                Please enter your phone number.
+              </div>
+            </div>
+            <div>
+              <label
+                for="roomType"
+                style="
+                  display: block;
+                  font-weight: 600;
+                  font-size: 14.5px;
+                  margin-bottom: 8px;
+                  color: var(--ink);
+                "
+                >Preferred Room</label
+              >
+              <select
+                id="roomType"
+                style="
+                  width: 100%;
+                  padding: 13px 16px;
+                  border: 1.5px solid #e4dccd;
+                  border-radius: 10px;
+                  font-family: 'Inter';
+                  font-size: 14.5px;
+                  color: var(--ink);
+                  background: #fff;
+                "
+              >
+                <option>Standard Room</option>
+                <option>Deluxe Room</option>
+                <option>Family Suite</option>
+              </select>
+            </div>
+          </div>
+
+          <div
+            class="form-row"
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 20px;
+              margin-bottom: 22px;
+            "
+          >
+            <div>
+              <label
+                for="checkin_form"
+                style="
+                  display: block;
+                  font-weight: 600;
+                  font-size: 14.5px;
+                  margin-bottom: 8px;
+                  color: var(--ink);
+                "
+                >Check-in</label
+              >
+              <input
+                type="date"
+                id="checkin_form"
+                style="
+                  width: 100%;
+                  padding: 13px 16px;
+                  border: 1.5px solid #e4dccd;
+                  border-radius: 10px;
+                  font-family: 'Inter';
+                  font-size: 14.5px;
+                  color: var(--ink);
+                  background: #fff;
+                "
+              />
+            </div>
+            <div>
+              <label
+                for="checkout_form"
+                style="
+                  display: block;
+                  font-weight: 600;
+                  font-size: 14.5px;
+                  margin-bottom: 8px;
+                  color: var(--ink);
+                "
+                >Check-out</label
+              >
+              <input
+                type="date"
+                id="checkout_form"
+                style="
+                  width: 100%;
+                  padding: 13px 16px;
+                  border: 1.5px solid #e4dccd;
+                  border-radius: 10px;
+                  font-family: 'Inter';
+                  font-size: 14.5px;
+                  color: var(--ink);
+                  background: #fff;
+                "
+              />
+            </div>
+          </div>
+
+          <label
+            for="message"
+            style="
+              display: block;
+              font-weight: 600;
+              font-size: 14.5px;
+              margin-bottom: 8px;
+              color: var(--ink);
+            "
+            >Message</label
+          >
+          <textarea
+            id="message"
+            placeholder="Tell us about your stay, travel needs, or any special requests."
+            style="
+              width: 100%;
+              padding: 13px 16px;
+              border: 1.5px solid #e4dccd;
+              border-radius: 10px;
+              font-family: 'Inter';
+              font-size: 14.5px;
+              color: var(--ink);
+              background: #fff;
+              resize: vertical;
+              min-height: 110px;
+            "
+          ></textarea>
+
+          <div style="margin-top: 24px">
+            <button type="submit" class="btn btn-primary">
+              Send Booking Request
+            </button>
+          </div>
+          <p
+            class="submit-note"
+            id="submitNote"
+            style="font-size: 13.5px; color: var(--ink-soft); margin-top: 16px"
+          >
+            Please fill in the details above and we'll follow up shortly.
+          </p>
+        </form>
+
+        <aside>
+          <div
+            class="side-card"
+            style="
+              background: #fff;
+              border-radius: var(--radius);
+              box-shadow: var(--shadow);
+              padding: 32px;
+              margin-bottom: 24px;
+            "
+          >
+            <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 20px">
+              Get in touch
+            </h3>
+            <div
+              class="contact-row"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 15px;
+                margin-bottom: 18px;
+                color: var(--ink);
+              "
+            >
+              <span
+                class="ic"
+                style="
+                  width: 38px;
+                  height: 38px;
+                  border-radius: 50%;
+                  background: var(--beige);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 16px;
+                  color: var(--maroon);
+                  flex-shrink: 0;
+                "
+                >📞</span
+              >
+              <a
+                href="tel:+919876543210"
+                style="color: var(--maroon); font-weight: 600"
+                >+91 98765 43210</a
+              >
+            </div>
+            <div
+              class="contact-row"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 15px;
+                margin-bottom: 18px;
+                color: var(--ink);
+              "
+            >
+              <span
+                class="ic"
+                style="
+                  width: 38px;
+                  height: 38px;
+                  border-radius: 50%;
+                  background: var(--beige);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 16px;
+                  color: var(--maroon);
+                  flex-shrink: 0;
+                "
+                >✉️</span
+              >
+              <a
+                href="mailto:stay@srresidency.com"
+                style="color: var(--maroon); font-weight: 600"
+                >stay@srresidency.com</a
+              >
+            </div>
+            <div
+              class="contact-row"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 15px;
+                margin-bottom: 18px;
+                color: var(--ink);
+              "
+            >
+              <span
+                class="ic"
+                style="
+                  width: 38px;
+                  height: 38px;
+                  border-radius: 50%;
+                  background: var(--beige);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 16px;
+                  color: var(--maroon);
+                  flex-shrink: 0;
+                "
+                >💬</span
+              >
+              <a
+                href="https://wa.me/919876543210"
+                target="_blank"
+                style="color: var(--maroon); font-weight: 600"
+                >WhatsApp us</a
+              >
+            </div>
+            <div
+              class="contact-row"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 15px;
+                margin-bottom: 18px;
+                color: var(--ink);
+              "
+            >
+              <span
+                class="ic"
+                style="
+                  width: 38px;
+                  height: 38px;
+                  border-radius: 50%;
+                  background: var(--beige);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 16px;
+                  color: var(--maroon);
+                  flex-shrink: 0;
+                "
+                >🕐</span
+              >
+              Reception: 24/7
+            </div>
+            <div
+              class="contact-row"
+              style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 15px;
+                margin-bottom: 18px;
+                color: var(--ink);
+              "
+            >
+              <span
+                class="ic"
+                style="
+                  width: 38px;
+                  height: 38px;
+                  border-radius: 50%;
+                  background: var(--beige);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 16px;
+                  color: var(--maroon);
+                  flex-shrink: 0;
+                "
+                >📍</span
+              >
+              Chennai, Tamil Nadu, India
+            </div>
+          </div>
+
+          <div
+            class="side-card map-card"
+            style="
+              background: #fff;
+              border-radius: var(--radius);
+              box-shadow: var(--shadow);
+              padding: 0;
+              overflow: hidden;
+              margin-bottom: 24px;
+            "
+          >
+            <iframe
+              src="https://www.google.com/maps?q=Chennai,Tamil%20Nadu,India&output=embed"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="SR Residency location map"
+              style="width: 100%; height: 280px; border: 0; display: block"
+            >
+            </iframe>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="final-cta" id="contact">
+      <h2>Ready for a comfortable stay in Chennai?</h2>
+      <p>
+        Book directly with us for the best guaranteed rate and flexible
+        cancellation.
+      </p>
+      <div class="ctas">
+        <a href="#booking" class="btn btn-primary">📅 Book Your Room</a>
+        <a href="tel:+919876543210" class="btn btn-ghost-light"
+          >📞 Call Us: +91 98765 43210</a
+        >
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-grid">
+        <div>
+          <h5>SR Residency</h5>
+          <p>
+            Comfortable, dependable stays for families and professionals in
+            Chennai. Trusted by 5,000+ guests.
+          </p>
+        </div>
+        <div>
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="#rooms">Rooms & Rates</a></li>
+            <li><a href="#amenities">Amenities</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#booking">Contact & Booking</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <div class="contact-item">📞 +91 98765 43210</div>
+          <div class="contact-item">✉️ stay@srresidency.com</div>
+          <div class="contact-item">📍 Chennai, Tamil Nadu, India</div>
+        </div>
+        <div>
+          <h5>Follow Us</h5>
+          <div class="social-row">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">◎</a>
+            <a
+              href="https://wa.me/919876543210"
+              target="_blank"
+              aria-label="WhatsApp"
+              >☎</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 SR Residency. All rights reserved.</div>
+        <div>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/919876543210"
+      target="_blank"
+      class="float-whatsapp"
+      aria-label="Chat on WhatsApp"
+      >💬</a
+    >
+
+    <script>
+      // Mobile nav toggle
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+      menuToggle.addEventListener('click', () =>
+        navLinks.classList.toggle('open'),
+      );
+
+      // Reveal on scroll
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add('in');
+          });
+        },
+        { threshold: 0.1 },
+      );
+      reveals.forEach((r) => observer.observe(r));
+
+      // Sticky booking bar on scroll past hero
+      const bookingBar = document.getElementById('bookingBar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+          bookingBar.classList.add('show');
+        } else {
+          bookingBar.classList.remove('show');
+        }
+      });
+
+      // Calculate price
+      const cin = document.getElementById('checkin');
+      const cout = document.getElementById('checkout');
+      const bbTotal = document.getElementById('bbTotal');
+
+      function updatePrice() {
+        if (cin.value && cout.value) {
+          const d1 = new Date(cin.value);
+          const d2 = new Date(cout.value);
+          const nights = Math.max(
+            1,
+            Math.round((d2 - d1) / (1000 * 60 * 60 * 24)),
+          );
+          if (nights > 0) {
+            bbTotal.textContent = `Est. Total (${nights} night${nights > 1 ? 's' : ''}): ₹${(nights * 2200).toLocaleString('en-IN')}`;
+          } else {
+            bbTotal.textContent = '';
+          }
+        }
+      }
+      cin.addEventListener('change', updatePrice);
+      cout.addEventListener('change', updatePrice);
+
+      document.getElementById('checkAvail').addEventListener('click', () => {
+        const bSection = document.getElementById('booking');
+        if (bSection) bSection.scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // Room filter tabs
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      const roomCards = document.querySelectorAll('.room-card');
+
+      filterTabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          filterTabs.forEach((t) => t.classList.remove('active'));
+          tab.classList.add('active');
+          const filter = tab.dataset.filter;
+
+          roomCards.forEach((card) => {
+            if (filter === 'all' || card.dataset.type.includes(filter)) {
+              card.classList.remove('hide');
+            } else {
+              card.classList.add('hide');
+            }
+          });
+        });
+      });
+
+      // Lightbox functionality
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCounter = document.getElementById('lightboxCounter');
+      let currentIdx = 0;
+
+      const images = Array.from(galleryItems).map(
+        (item) => item.querySelector('img').src,
+      );
+
+      function openLightbox(idx) {
+        currentIdx = idx;
+        lightboxImg.src = images[currentIdx];
+        lightboxCounter.textContent = `${currentIdx + 1} / ${images.length}`;
+        lightbox.classList.add('open');
+      }
+
+      galleryItems.forEach((item, idx) => {
+        item.addEventListener('click', () => openLightbox(idx));
+      });
+
+      document
+        .getElementById('lightboxClose')
+        .addEventListener('click', () => lightbox.classList.remove('open'));
+      document.getElementById('lightboxNext').addEventListener('click', () => {
+        currentIdx = (currentIdx + 1) % images.length;
+        openLightbox(currentIdx);
+      });
+      document.getElementById('lightboxPrev').addEventListener('click', () => {
+        currentIdx = (currentIdx - 1 + images.length) % images.length;
+        openLightbox(currentIdx);
+      });
+
+      // Testimonial Carousel
+      const slides = document.getElementById('reviewSlides');
+      const dots = document.querySelectorAll('.carousel-dot');
+      let slideIdx = 0;
+
+      function showSlide(idx) {
+        slideIdx = idx;
+        slides.style.transform = `translateX(-${slideIdx * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === slideIdx));
+      }
+
+      document.getElementById('slideNext').addEventListener('click', () => {
+        showSlide((slideIdx + 1) % 3);
+      });
+      document.getElementById('slidePrev').addEventListener('click', () => {
+        showSlide((slideIdx - 1 + 3) % 3);
+      });
+      dots.forEach((d) => {
+        d.addEventListener('click', () => showSlide(parseInt(d.dataset.idx)));
+      });
+
+      // FAQ Accordion
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach((item) => {
+        const q = item.querySelector('.faq-q');
+        q.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+          faqItems.forEach((i) => i.classList.remove('open'));
+          if (!isOpen) item.classList.add('open');
+        });
+      });
+
+      // Booking Form Validation
+      const bookingForm = document.getElementById('bookingForm');
+      const submitNote = document.getElementById('submitNote');
+
+      function validateField(id, errId, testFn) {
+        const el = document.getElementById(id);
+        const err = document.getElementById(errId);
+        const ok = testFn(el.value.trim());
+        el.style.borderColor = ok ? '#e4dccd' : '#c14848';
+        if (err) err.style.display = ok ? 'none' : 'block';
+        return ok;
+      }
+
+      if (bookingForm) {
+        bookingForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const nameOk = validateField(
+            'name',
+            'nameError',
+            (v) => v.length > 1,
+          );
+          const emailOk = validateField('email', 'emailError', (v) =>
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+          );
+          const phoneOk = validateField(
+            'phone',
+            'phoneError',
+            (v) => v.replace(/\D/g, '').length >= 10,
+          );
+
+          if (nameOk && emailOk && phoneOk) {
+            submitNote.textContent =
+              'Thanks! Your booking request has been received — our team will contact you shortly.';
+            submitNote.style.color = 'var(--green)';
+            submitNote.style.fontWeight = '600';
+            bookingForm.reset();
+          } else {
+            submitNote.textContent =
+              'Please fix the highlighted fields above and try again.';
+            submitNote.style.color = '#c14848';
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
