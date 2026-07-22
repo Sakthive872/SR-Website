@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+  <!doctype html>
+  <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,14 +60,21 @@
         padding: 0 32px;
       }
       .eyebrow {
-        font-size: 13px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: var(--maroon);
-        font-weight: 700;
-        margin-bottom: 12px;
-        display: block;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--maroon);
+      font-weight: 700;
+      font-size: 23px;
+      margin-left: 20px;
+      margin-bottom: 12px;
+      display: block;
+      transform: translateX(-20px);
       }
+      .eyebrow {
+        position: relative;
+        left: -20px; /* Change to -10px, -15px, -25px as needed */
+        }
       section {
         padding: 100px 0;
       }
@@ -135,7 +142,7 @@
       .nav-links a {
         font-family: "Segoe UI", sans-serif;
         font-weight: 500;
-        font-size: 19  px;
+        font-size: 25  px;
         color: var(--ink);
         position: relative;
         padding: 4px 0;
@@ -152,7 +159,7 @@
       }
       .nav-links a:hover {
     color: var(--gold);
-}
+      }
       .btn {
     width: 240px;
     height: 45px;
@@ -207,6 +214,7 @@
       .hero {
         position: relative;
         min-height: 92vh;
+        margin-left: -20px;
         display: flex;
         align-items: center;
         color: #fff;
@@ -220,6 +228,10 @@
       }
       .hero-content {
         max-width: 680px;
+        margin-left: -120px;
+      }
+      .hero-content {
+        transform: translateX(-30px); /* Move left */
       }
       .hero h1 {
         font-size: 52px;
@@ -839,7 +851,7 @@
 
       /* ---------- final cta ---------- */
       .final-cta {
-        background: linear-gradient(135deg, var(--maroon), var(--maroon-dark));
+        background: linear-gradient(135deg, #861d36, #9a455b);
         color: #fff;
         text-align: center;
         padding: 80px 32px;
@@ -863,8 +875,8 @@
 
       /* ---------- footer ---------- */
       footer {
-        background: var(--navy);
-        color: #fff;
+        background-color: var(--navy);
+        color: #6ae5d9;
         padding: 64px 0 32px;
         font-size: 14px;
       }
@@ -910,6 +922,9 @@
       .social-row {
         display: flex;
         gap: 12px;
+      }
+    .hero:hover {
+      border-color: #8B2E3C !important;
       }
       .social-row a {
         width: 36px;
@@ -975,6 +990,17 @@
         display: none !important;
       }
     </style>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+  (function(){
+      emailjs.init({
+        publicKey: "tL5gRs7xeICR3mUxO",
+      });
+  })();
+  </script>
+  <script src="script.js"></script>
   </head>
   <body>
     <header>
@@ -1188,7 +1214,7 @@
           <div class="amenity-card reveal">
           <div class="amenity-icon">🔒</div>
             <h4>24/7 CCTV Security</h4>
-             <div class="amenity-detail">
+            <div class="amenity-detail">
               Round-the-clock CCTV surveillance and secure premises for your safety and peace of mind.
             </div>
           </div>
@@ -1266,19 +1292,19 @@
               alt="Deluxe Room  at SR Residency"
             />
           </div>
-         <div class="gallery-item reveal">
+        <div class="gallery-item reveal">
             <img
               src="images/residency_img_2.jpg"
               alt="Delicious Food Served at SR Residency"
             />
           </div>
-           <div class="gallery-item reveal">
+          <div class="gallery-item reveal">
             <img
               src="images/images.jpg"
               alt="Delicious Food Served at SR Residency"
             />
           </div>
-           <div class="gallery-item reveal">
+          <div class="gallery-item reveal">
             <img
               src="images/residency_img_3.jpg"
               alt="Delicious Food Served at SR Residency"
@@ -1478,7 +1504,12 @@
           align-items: start;
         "
       >
-        <form id="bookingForm" novalidate>
+          <form id="bookingForm" action="https://api.web3forms.com/submit"   method="POST">
+            <input type="hidden" name="access_key" value="0076c4f7-b335-422f-b26e-a9b88f2bed3c">
+
+            <input type="hidden" name="subject" value="New Booking Request - SR Residency">
+
+            <input type="hidden" name="from_name" value="SR Residency Website">
           <div
             class="form-row"
             style="
@@ -1500,9 +1531,12 @@
                 "
                 >Name</label
               >
+              
               <input
                 type="text"
                 id="name"
+                name="Name"
+                  placeholder="Enter your full name"
                 required
                 style="
                   width: 100%;
@@ -1543,6 +1577,8 @@
               <input
                 type="email"
                 id="email"
+                name="Email"
+                placeholder="Enter your email address"
                 required
                 style="
                   width: 100%;
@@ -1594,6 +1630,8 @@
               <input
                 type="tel"
                 id="phone"
+                name="Phone"
+                placeholder="Enter your phone number"
                 required
                 style="
                   width: 100%;
@@ -1633,6 +1671,7 @@
               >
               <select
                 id="roomType"
+                name="Preferred Room">
                 style="
                   width: 100%;
                   padding: 13px 16px;
@@ -1675,6 +1714,7 @@
               <input
                 type="date"
                 id="checkin_form"
+                name="Check-in Date"
                 style="
                   width: 100%;
                   padding: 13px 16px;
@@ -1702,6 +1742,7 @@
               <input
                 type="date"
                 id="checkout_form"
+                name="Check-out Date"
                 style="
                   width: 100%;
                   padding: 13px 16px;
@@ -1729,6 +1770,7 @@
           >
           <textarea
             id="message"
+            name="Special Request"
             placeholder="Tell us about your stay, travel needs, or any special requests."
             style="
               width: 100%;
@@ -1762,11 +1804,14 @@
           <div
             class="side-card"
             style="
-              background: #fff;
+              background: #ebdbdb;
               border-radius: var(--radius);
               box-shadow: var(--shadow);
               padding: 32px;
               margin-bottom: 24px;
+              border-width: 2px;
+              border-color: #d53b6e8e;
+              border-style: solid;
             "
           >
             <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 20px">
@@ -2027,6 +2072,116 @@
     >
 
     <script>
+      
+  const form = document.getElementById("bookingForm");
+
+  form.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    // Inputs
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const phone = document.getElementById("phone");
+    const room = document.getElementById("roomType");
+    const checkin = document.getElementById("checkin_form");
+    const checkout = document.getElementById("checkout_form");
+    const message = document.getElementById("message");
+
+    // Error Messages
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const phoneError = document.getElementById("phoneError");
+
+    // Reset
+    nameError.style.display = "none";
+    emailError.style.display = "none";
+    phoneError.style.display = "none";
+
+    name.style.borderColor = "#e4dccd";
+    email.style.borderColor = "#e4dccd";
+    phone.style.borderColor = "#e4dccd";
+    checkin.style.borderColor = "#e4dccd";
+    checkout.style.borderColor = "#e4dccd";
+    room.style.borderColor = "#e4dccd";
+
+    let valid = true;
+
+    // Name Validation
+    if (name.value.trim() === "") {
+        nameError.innerText = "Please enter your name.";
+        nameError.style.display = "block";
+        name.style.borderColor = "red";
+        valid = false;
+    }
+
+    // Email Validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email.value.trim())) {
+        emailError.innerText = "Please enter a valid email.";
+        emailError.style.display = "block";
+        email.style.borderColor = "red";
+        valid = false;
+    }
+
+    // Phone Validation
+    const phonePattern = /^[0-9]{10}$/;
+
+    if (!phonePattern.test(phone.value.trim())) {
+        phoneError.innerText = "Please enter a valid 10-digit phone number.";
+        phoneError.style.display = "block";
+        phone.style.borderColor = "red";
+        valid = false;
+    }
+
+    // Room Validation
+    if (room.value.trim() === "") {
+        room.style.borderColor = "red";
+        valid = false;
+    }
+
+    // Check-in Validation
+    if (checkin.value === "") {
+        checkin.style.borderColor = "red";
+        valid = false;
+    }
+
+    // Check-out Validation
+    if (checkout.value === "") {
+        checkout.style.borderColor = "red";
+        valid = false;
+    }
+
+    // Date Validation
+    if (checkin.value !== "" && checkout.value !== "") {
+
+        let inDate = new Date(checkin.value);
+        let outDate = new Date(checkout.value);
+
+        if (outDate <= inDate) {
+            alert("Check-out date must be after Check-in date.");
+            checkout.style.borderColor = "red";
+            valid = false;
+        }
+    }
+
+    // Message Length
+    if (message.value.length > 500) {
+        alert("Message should be less than 500 characters.");
+        valid = false;
+    }
+
+    // Submit
+    if (valid) {
+
+        document.querySelector("button[type='submit']").innerText = "Sending...";
+
+        form.submit();
+    }
+
+  });
+
       // Mobile nav toggle
       const menuToggle = document.getElementById('menuToggle');
       const navLinks = document.getElementById('navLinks');
@@ -2215,4 +2370,4 @@
       }
     </script>
   </body>
-</html>
+  </html>
