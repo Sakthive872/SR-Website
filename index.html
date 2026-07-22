@@ -2074,6 +2074,9 @@
     <script>
       
   const form = document.getElementById("bookingForm");
+  const today = new Date().toISOString().split("T")[0];
+  document.getElementById("checkin_form").min = today;
+  document.getElementById("checkout_form").min = today;
 
   form.addEventListener("submit", function (e) {
 
@@ -2154,17 +2157,32 @@
     }
 
     // Date Validation
-    if (checkin.value !== "" && checkout.value !== "") {
+    // Date Validation
+  if (checkin.value !== "" && checkout.value !== "") {
 
-        let inDate = new Date(checkin.value);
-        let outDate = new Date(checkout.value);
+    let today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-        if (outDate <= inDate) {
-            alert("Check-out date must be after Check-in date.");
-            checkout.style.borderColor = "red";
-            valid = false;
-        }
+    let inDate = new Date(checkin.value);
+    let outDate = new Date(checkout.value);
+
+    if (inDate < today || outDate < today) {
+        alert("Past date booking is not allowed.");
+        checkin.style.borderColor = "red";
+        checkout.style.borderColor = "red";
+        valid = false;
     }
+
+    else if (outDate < inDate) {
+        alert("Check-out date cannot be earlier than Check-in date.");
+        checkout.style.borderColor = "red";
+        valid = false;
+    }
+
+    else if (outDate.getTime() === inDate.getTime()) {
+        alert("Same-day booking request will be sent for approval.");
+    }
+  }
 
     // Message Length
     if (message.value.length > 500) {
@@ -2324,50 +2342,6 @@
           if (!isOpen) item.classList.add('open');
         });
       });
-
-      // Booking Form Validation
-      const bookingForm = document.getElementById('bookingForm');
-      const submitNote = document.getElementById('submitNote');
-
-      function validateField(id, errId, testFn) {
-        const el = document.getElementById(id);
-        const err = document.getElementById(errId);
-        const ok = testFn(el.value.trim());
-        el.style.borderColor = ok ? '#e4dccd' : '#c14848';
-        if (err) err.style.display = ok ? 'none' : 'block';
-        return ok;
-      }
-
-      if (bookingForm) {
-        bookingForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const nameOk = validateField(
-            'name',
-            'nameError',
-            (v) => v.length > 1,
-          );
-          const emailOk = validateField('email', 'emailError', (v) =>
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
-          );
-          const phoneOk = validateField(
-            'phone',
-            'phoneError',
-            (v) => v.replace(/\D/g, '').length >= 10,
-          );
-
-          if (nameOk && emailOk && phoneOk) {
-            submitNote.textContent =
-              'Thanks! Your booking request has been received — our team will contact you shortly.';
-            submitNote.style.color = 'var(--green)';
-            submitNote.style.fontWeight = '600';
-            bookingForm.reset();
-          } else {
-            submitNote.textContent =
-              'Please fix the highlighted fields above and try again.';
-            submitNote.style.color = '#c14848';
-          }
-        });
-      }
     </script>
   </body>
   </html>
